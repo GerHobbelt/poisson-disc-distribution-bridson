@@ -1,21 +1,13 @@
 // Copyright (c) 2019 Martyn Afford
 // Licensed under the MIT licence
 
-#include <chrono>
 #include <iostream>
 #include <random>
 #include "poisson_disc_distribution.hpp"
 
-int* FPD_Random(int width, int height, double min_distance) {
-    //constexpr auto width = 6000;
-    //constexpr auto height = 4000;
+int* FPD_Random(int width, int height, double min_distance, int seed) {
 
     int *map = new int [height*width];
-    /*for (int i = 0; i < height; i++) {
-        map[i] = new int[width];
-    }*/
-
-    auto seed = std::chrono::system_clock::now().time_since_epoch().count();
 
     std::default_random_engine engine{seed};
     std::uniform_real_distribution<float> distribution{0, 1};
@@ -44,7 +36,7 @@ int* FPD_Random(int width, int height, double min_distance) {
 }
 
 extern "C"{
-    int* get_FPD_Random(int width, int height, double min_distance){
-        return FPD_Random(width, height, min_distance);
+    int* get_FPD_Random(int width, int height, double min_distance, int seed){
+        return FPD_Random(width, height, min_distance, seed);
     }
 }
