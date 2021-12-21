@@ -14,9 +14,8 @@ g++ -shared -Wl,-soname,FPD_Random -o FPD_Random.so -fPIC FPD_Random.cpp
 
 ``` python
 from numpy.ctypeslib import ndpointer
-from ctypes import POINTER, c_bool, c_int, c_double
+from ctypes import c_int, c_double
 import ctypes
-lib = ctypes.cdll.LoadLibrary('FPD_Random.so')
 
 width = 5184
 height = 3456
