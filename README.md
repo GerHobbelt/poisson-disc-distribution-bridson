@@ -10,7 +10,7 @@ Compile it to `.so` library so that it can be used in python.
 g++ -shared -Wl,-soname,FPD_Random -o FPD_Random.so -fPIC FPD_Random.cpp
 ```
 
-# Usage
+## Usage
 
 ``` python
 from numpy.ctypeslib import ndpointer
