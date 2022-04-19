@@ -15,7 +15,7 @@ Compile it to `.so` library so that it can be used in python.
 ## Compile
 
 ``` bash
-g++ -shared -Wl,-soname,FPD_Random -o FPD_Random.so -fPIC FPD_Random.cpp
+g++ -shared -Wl,-soname,FPD_Random -o FPD_Random.so -fPIC src/FPD_Random.cpp
 ```
 
 ## Usage

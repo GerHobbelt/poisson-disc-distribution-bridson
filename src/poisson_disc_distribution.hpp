@@ -94,7 +94,7 @@ namespace bridson {
         };
 
         auto point_around = [&conf, &random](point p) {
-            auto radius = conf.min_distance * std::sqrt(random(3) + 1);
+            auto radius = conf.min_distance * std::sqrt(random(3) + 1);  // 为什么不是random(1) + 1
             auto angle = random(2 * M_PI);
 
             p.x += std::cos(angle) * radius;
