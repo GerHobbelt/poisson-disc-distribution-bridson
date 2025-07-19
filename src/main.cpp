@@ -17,7 +17,8 @@ main()
 
     auto seed = std::chrono::system_clock::now().time_since_epoch().count();
 
-    std::default_random_engine engine{seed};
+	// fix error C2398: 'seed': conversion from '_Rep' to 'unsigned int' requires a narrowing conversion
+    std::default_random_engine engine{static_cast<std::default_random_engine::result_type>(seed)};
     std::uniform_real_distribution<float> distribution{0, 1};
 
     bridson::config conf;
